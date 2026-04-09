@@ -7,18 +7,7 @@
         <h3>Welcome, {{ user.username }}!</h3>
         <p>Your age is <strong>{{ user.age }}</strong> and you live at <strong>{{ user.address }}</strong></p>
         <p>Your email is <strong>{{ user.email }}</strong></p>
-        <div style="display: flex; gap: 10px;">
-            <form action="{% url 'update_user' user.pk %}" method="post">
-                {% csrf_token %}
-                <button type="submit">Update User</button>
-            </form>
-            <form action="{% url 'logout' %}" method="post">
-                {% csrf_token %}
-                <button type="submit">Logout</button>
-            </form>
-        </div>
     {% else %}
         <h3>You are not logged in</h3>
-        <a href="{% url 'login' %}">Login</a> | <a href="{% url 'signup' %}">Signup</a>
     {% endif %}
 {% endblock content %}
