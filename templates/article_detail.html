@@ -3,11 +3,17 @@
 {% block title %}{{ article.title }}{% endblock title %}
 
 {% block content %}
-<div style="border: 1px solid black; padding: 10px;">
-    <div style="border-bottom: 1px solid black; background-color: lightblue; padding: 10px">
-        <h4>{{ article.title }}</h4>
+    <div style="border: 1px solid black; padding: 10px;">
+        <div style="border-bottom: 1px solid black; background-color: lightblue; padding: 10px">
+            <h4>{{ article.title }}</h4>
+        </div>
+        <div style="margin-top: 1em; padding-bottom: 1em">{{ article.body }}</div>
+        <div style="display: flex; justify-content: flex-end; margin-top: 0.5em"><strong>{{ article.author }}</strong>
+        </div>
+        {% if article.author.pk == request.user.pk %}
+            <p><a href="{% url 'article_edit' article.pk %}">Edit</a>
+                <a href="{% url 'article_delete' article.pk %}">Delete</a>
+            </p>
+        {% endif %}
     </div>
-    <div style="margin-top: 1em; padding-bottom: 1em">{{ article.body }}</div>
-    <div style="display: flex; justify-content: flex-end; margin-top: 0.5em"><strong>{{ article.author }}</strong></div>
-</div>
 {% endblock content %}
