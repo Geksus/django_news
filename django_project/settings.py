@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     # Local apps
     "accounts",
     "pages",
+    "articles",
     # 3d party apps
     "crispy_forms",
     "crispy_bootstrap5",
@@ -112,7 +113,7 @@ AUTH_USER_MODEL = "accounts.CustomUser"
 
 LANGUAGE_CODE = "en-us"
 
-TIME_ZONE = "UTC"
+TIME_ZONE = "Europe/Kyiv"
 
 USE_I18N = True
 
